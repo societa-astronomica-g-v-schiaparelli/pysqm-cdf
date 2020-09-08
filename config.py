@@ -69,7 +69,7 @@ _offset_calibration = 0  # magnitude = read_magnitude + offset
 _reboot_on_connlost = False  # Reboot if we loose connection
 
 # Monthly (permanent) data
-monthly_data_directory = "/media/allsky/sqm/"
+monthly_data_directory = "/media/pysqm/"
 # Daily (permanent) data
 daily_data_directory = monthly_data_directory+"/datos_diarios/"
 # Daily (permanent) graph
