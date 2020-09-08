@@ -11,7 +11,7 @@ buildah bud -t pysqm .
 ### Run
 Assuming that the data directory is `/media/pysqm`, run with:
 ```bash
-podman run -v /tmp/pippo:/media/allsky/sqm:Z pysqm
+podman run -v /media/pysqm:/media/allsky/sqm:Z pysqm
 ```
 
 This code should be run with e.g. a systemd unit.
