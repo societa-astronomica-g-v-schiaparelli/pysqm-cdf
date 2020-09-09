@@ -1,0 +1,6 @@
+[Unit]
+Description=Uploads PySQM images
+
+[Service]
+ExecStart=/usr/bin/podman exec --user pysqm c19d32d2990bfe1d88c331be6d2d9b5a6e5de3fd273f7bc212c77c38f099f036 php /home/pysqm/upload_sqm_images.php
+Type=oneshot

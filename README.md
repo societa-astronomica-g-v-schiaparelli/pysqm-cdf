@@ -28,5 +28,13 @@ Images are uploaded with the included PHP script, which can be run with
 podman exec -it --user pysqm <container_name> php /home/pysqm/upload_sqm_images.php
 ```
 
-This can be automatized with a systemd timer
+#### Periodically upload with a systemd timer
+Modify `upload-pysqm-images.service` by inserting the correct name of the container. Once done so, install
+the systemd timer with:
+```bash
+cp upload-pysqm-images.* /etc/systemd/system
+systemctl daemon-reload
+systemctl --now enable upload-pysqm-images.timer
+```
+This will upload the SQM images once every 10 minutes.
 
