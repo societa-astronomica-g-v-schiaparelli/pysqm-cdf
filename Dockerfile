@@ -19,6 +19,7 @@ USER pysqm
 RUN git clone https://github.com/mireianievas/PySQM.git /home/pysqm/PySQM
 ADD config.py /home/pysqm/PySQM/config.py
 ADD upload_sqm_images.php /home/pysqm/upload_sqm_images.php
+ADD ftp_settings.php /home/pysqm/ftp_settings.php
 
 # Run PySQM
 ENTRYPOINT cd /home/pysqm/PySQM && python2 -m pysqm
