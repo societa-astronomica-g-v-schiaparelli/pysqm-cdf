@@ -1,24 +1,28 @@
 #!/usr/bin/php
 <?php
 /*
- * upload_sqm_images.php
-*  Invia sul sito astrogeo le immagini della camera SQM
- * 2017 - Dario Pilori <dario.pilori@astrogeo.va.it>
+* upload_sqm_images.php
+* Invia sul sito astrogeo le immagini della camera SQM
+* Copyright (c) 2017-2020 - Dario Pilori <dario.pilori@astrogeo.va.it>
+* SPDX-License-Identifier: MIT
+*
 */
 // Directory contenente le immagini
 define("DIR", "/media/pysqm/");
+
 // Impostazioni FTP
-//define("FTPHOST", "ftp.astrogeo.va.it");
-define("FTPHOST", "10.101.0.2");
-define("FTPUSER", "sqm");
-define("FTPPASS", "***REMOVED***");
+// Definire queste costanti nel file ftp_settings.php:
+// define("FTPHOST", "ftp.example.com");
+// define("FTPUSER", "username");
+// define("FTPPASS", "password");
+require_once('ftp_settings.php');
+
 $sqmname = 'SQM_SCHIAP';
 
 // Imposta timezone
 date_default_timezone_set('Europe/Rome');
 
 // Invio via FTP
-//$ftpconn = ftp_ssl_connect(FTPHOST) or die("Impossibile collegarsi al server FTP\n");
 $ftpconn = ftp_connect(FTPHOST) or die("Impossibile collegarsi al server FTP\n");
 ftp_login($ftpconn, FTPUSER, FTPPASS) or die("Impossibile effettuare il login al server FTP\n");
 ftp_pasv($ftpconn, true);
