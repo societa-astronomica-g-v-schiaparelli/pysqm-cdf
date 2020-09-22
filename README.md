@@ -1,7 +1,9 @@
 # pysqm-cdf
-Dockerfile and configuration for the [PySQM](https://guaix.fis.ucm.es/PySQM) software to manage the SQM device.
+Dockerfile and configuration for the [PySQM](https://guaix.fis.ucm.es/PySQM) software to manage a [SQM-LE](http://unihedron.com/projects/sqm-le/) device.
 
 ## Usage
+These examples assume a [CentOS](https://centos.org/) 8 OS with [Podman](https://podman.io/) and [Buildah](https://buildah.io/).
+
 ### Build
 Build with:
 ```bash
@@ -15,7 +17,7 @@ podman run -d -v /media/pysqm:/media/pysqm pysqm
 ```
 
 ### Start and stop container
-To run the container, it is best to build a systemd unit:
+To run the container, it is best to generate and use a systemd unit:
 ```bash
 podman generate systemd <container_name> > /etc/systemd/system/pysqm.service
 systemctl daemon-reload
