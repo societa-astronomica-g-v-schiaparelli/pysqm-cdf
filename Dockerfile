@@ -18,8 +18,8 @@ USER pysqm
 # Install PySQM with config
 RUN git clone https://github.com/societa-astronomica-g-v-schiaparelli/PySQM.git /home/pysqm/PySQM
 ADD config.py /home/pysqm/PySQM/config.py
-ADD upload_sqm_images.php /home/pysqm/upload_sqm_images.php
-ADD ftp_settings.php /home/pysqm/ftp_settings.php
+ADD upload_sqm_images.sh /home/pysqm/upload_sqm_images.sh
+ADD ftp_settings /home/pysqm/ftp_settings
 
 # Run PySQM
 WORKDIR /home/pysqm/PySQM
