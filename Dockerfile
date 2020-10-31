@@ -6,7 +6,7 @@ MAINTAINER Dario Pilori <dario.pilori@astrogeo.va.it>
 RUN yum -y install epel-release
 
 # Install dependencies
-RUN yum -y install python2-numpy python-matplotlib git pyephem php-cli
+RUN yum -y install python2-numpy python-matplotlib git pyephem ftp
 
 # Select volume for images
 VOLUME /media/pysqm
