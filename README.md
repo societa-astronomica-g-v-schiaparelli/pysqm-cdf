@@ -19,7 +19,7 @@ podman run --name pysqm -d -v /media/pysqm:/media/pysqm pysqm-img
 ### Start and stop container
 To run the container, it is best to generate and use a systemd unit:
 ```bash
-podman generate systemd -n <container_name> > /etc/systemd/system/pysqm.service
+podman generate systemd -n pysqm > /etc/systemd/system/pysqm.service
 systemctl daemon-reload
 systemctl enable pysqm.service
 ```
@@ -27,7 +27,7 @@ systemctl enable pysqm.service
 ### Upload images
 Images are uploaded with the included PHP script, which can be run with
 ```bash
-podman exec -it --user pysqm <container_name> bash /home/pysqm/upload_sqm_images.sh
+podman exec -it --user pysqm pysqm bash /home/pysqm/upload_sqm_images.sh
 ```
 
 #### Periodically upload with a systemd timer

@@ -9,18 +9,18 @@
 #FTPHOST="ftp.example.com"
 #FTPUSER="username"
 #FTPPASS="password"
-source ftp_settings
+source /home/pysqm/ftp_settings
 
 # Set name of SQM and working dir
 SQM_NAME="SQM_SCHIAP"
 DIR="/media/pysqm/"
 
 # FTP upload
-ftp -ine << EOF
+ftp -ine ${FTPHOST} << EOF
 
 user ${FTPUSER} ${FTPPASS}
-cd ${DIR}
-put ${SQM_NAME}.txt
+lcd ${DIR}
+put ${SQM_NAME}.dat
 put ${SQM_NAME}.png
 bye
 
