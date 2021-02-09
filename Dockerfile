@@ -16,7 +16,8 @@ RUN yum -y install python2-numpy python-matplotlib git pyephem ftp
 VOLUME /media/pysqm
 
 # Create unprivileged user
-RUN useradd -r -s /sbin/nologin -m -d /home/pysqm -u 1006 pysqm
+RUN groupadd -g 978 pysqm
+RUN useradd -g 978 -r -s /sbin/nologin -m -d /home/pysqm -u 1006 pysqm
 USER pysqm
 
 # Install PySQM with config
