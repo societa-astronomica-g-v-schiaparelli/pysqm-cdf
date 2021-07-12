@@ -16,9 +16,8 @@ SQM_NAME="SQM_SCHIAP"
 DIR="/media/pysqm/"
 
 # FTP upload
-ftp -ine ${FTPHOST} << EOF
+lftp -u ${FTPUSER},${FTPPASS} ${FTPHOST} << EOF
 
-user ${FTPUSER} ${FTPPASS}
 lcd ${DIR}
 put ${SQM_NAME}.dat
 put ${SQM_NAME}.png

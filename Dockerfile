@@ -10,7 +10,7 @@ LABEL maintainer="dario.pilori@astrogeo.va.it"
 RUN yum -y install epel-release
 
 # Install dependencies
-RUN yum -y install python2-numpy python-matplotlib git pyephem ftp
+RUN yum -y install python2-numpy python-matplotlib git pyephem lftp
 
 # Select volume for images
 VOLUME /media/pysqm
