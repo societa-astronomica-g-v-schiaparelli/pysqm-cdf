@@ -1,6 +1,6 @@
 ## Container for pysqm
 # Copyright (c) 2020-2022 - Dario Pilori <dario.pilori@astrogeo.va.it>
-# SPDX-License-Identifier: MIT OR GPL-3.0-or-later
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 # Base information
 FROM centos:7
