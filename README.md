@@ -2,7 +2,7 @@
 Dockerfile and configuration for the [PySQM](https://guaix.fis.ucm.es/PySQM) software to manage a [SQM-LE](http://unihedron.com/projects/sqm-le/) device.
 
 ## Usage
-These examples assume a [CentOS](https://centos.org/) 8 OS with [Podman](https://podman.io/) and [Buildah](https://buildah.io/).
+These examples assume a [AlmaLinux](https://almalinux.org/) OS with [Podman](https://podman.io/) and [Buildah](https://buildah.io/).
 
 ### Build
 Build with:
@@ -19,9 +19,10 @@ podman run --name pysqm -d -v /media/pysqm:/media/pysqm pysqm-img
 ### Start and stop container
 To run the container, it is best to generate and use a systemd unit:
 ```bash
-podman generate systemd -n pysqm > /etc/systemd/system/pysqm.service
+podman generate systemd --new -n pysqm > /etc/systemd/system/pysqm.service
 systemctl daemon-reload
-systemctl enable pysqm.service
+podman stop pysqm && podman rm pysqm
+systemctl --now enable pysqm.service
 ```
 
 ### Upload images

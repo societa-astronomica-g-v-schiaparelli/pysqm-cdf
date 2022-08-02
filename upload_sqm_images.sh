@@ -2,7 +2,7 @@
 # upload_sqm_images.sh
 # Uploads using FTP SQM images.
 #
-# Copyright (c) 2017-2020 - Dario Pilori <dario.pilori@astrogeo.va.it>
+# Copyright (c) 2017-2022 - Dario Pilori <dario.pilori@astrogeo.va.it>
 # SPDX-License-Identifier: MIT OR GPL-3.0-or-later
 
 ## Import FTP settings from `ftp_settings'

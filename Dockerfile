@@ -1,5 +1,5 @@
 ## Container for pysqm
-# Copyright (c) 2020 - Dario Pilori <dario.pilori@astrogeo.va.it>
+# Copyright (c) 2020-2022 - Dario Pilori <dario.pilori@astrogeo.va.it>
 # SPDX-License-Identifier: MIT OR GPL-3.0-or-later
 
 # Base information
@@ -7,6 +7,7 @@ FROM centos:7
 LABEL maintainer="dario.pilori@astrogeo.va.it"
 
 # Install EPEL
+RUN yum -y update
 RUN yum -y install epel-release
 
 # Install dependencies
