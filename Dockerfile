@@ -16,6 +16,11 @@ RUN pip install numpy ephem serial matplotlib
 # Select volume for images
 VOLUME /media/pysqm
 
+# Set timezone
+RUN apk add --no-cache tzdata
+RUN cp /usr/share/zoneinfo/Europe/Rome /etc/localtime && echo "Europe/Rome" > /etc/timezone
+RUN apk del tzdata
+
 # Create unprivileged user
 RUN addgroup -g 978 -S pysqm
 RUN adduser -g 978 -S -s /sbin/nologin -D -h /home/pysqm -G pysqm -u 1006 pysqm
