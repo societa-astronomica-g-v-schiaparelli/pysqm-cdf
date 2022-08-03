@@ -3,22 +3,22 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 # Base information
-FROM centos:7
+FROM python:2-alpine
 LABEL maintainer="dario.pilori@astrogeo.va.it"
 
-# Install EPEL
-RUN yum -y update
-RUN yum -y install epel-release
+# Install packages
+RUN apk add --no-cache git lftp freetype-dev gcc g++
 
-# Install dependencies
-RUN yum -y install python2-numpy python-matplotlib git pyephem lftp
+# Install Python packages
+RUN pip install -U pip setuptools wheel
+RUN pip install numpy ephem serial matplotlib
 
 # Select volume for images
 VOLUME /media/pysqm
 
 # Create unprivileged user
-RUN groupadd -g 978 pysqm
-RUN useradd -g 978 -r -s /sbin/nologin -m -d /home/pysqm -u 1006 pysqm
+RUN addgroup -g 978 -S pysqm
+RUN adduser -g 978 -S -s /sbin/nologin -D -h /home/pysqm -G pysqm -u 1006 pysqm
 USER pysqm
 
 # Install PySQM with config
