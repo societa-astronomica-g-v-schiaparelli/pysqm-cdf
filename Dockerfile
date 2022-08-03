@@ -7,19 +7,20 @@ FROM python:2-alpine
 LABEL maintainer="dario.pilori@astrogeo.va.it"
 
 # Install packages
-RUN apk add --no-cache git lftp freetype-dev gcc g++
+RUN apk add --no-cache git lftp freetype-dev gcc g++ tzdata
+
+# Set timezone
+RUN cp /usr/share/zoneinfo/Europe/Rome /etc/localtime && echo "Europe/Rome" > /etc/timezone
 
 # Install Python packages
 RUN pip install -U pip setuptools wheel
 RUN pip install numpy ephem serial matplotlib
 
+# Remove unused packages
+RUN apk del tzdata gcc g++
+
 # Select volume for images
 VOLUME /media/pysqm
-
-# Set timezone
-RUN apk add --no-cache tzdata
-RUN cp /usr/share/zoneinfo/Europe/Rome /etc/localtime && echo "Europe/Rome" > /etc/timezone
-RUN apk del tzdata
 
 # Create unprivileged user
 RUN addgroup -g 978 -S pysqm
