@@ -9,9 +9,6 @@ LABEL maintainer="dario.pilori@astrogeo.va.it"
 # Install packages
 RUN apk add --no-cache git lftp freetype-dev gcc g++ tzdata bash
 
-# Set timezone
-RUN cp /usr/share/zoneinfo/Europe/Rome /etc/localtime && echo "Europe/Rome" > /etc/timezone
-
 # Install Python packages
 RUN pip install -U pip setuptools wheel
 RUN pip install numpy ephem serial matplotlib
