@@ -51,9 +51,9 @@ _device_locationname = 'Varese/Italy - Osservatorio Schiaparelli'         # Devi
 _data_supplier = 'Societa` Astronomica G.V. Schiaparelli'  # Data supplier (contact)
 _device_addr = '192.168.40.35'  # Default IP address of the ethernet device (if not automatically found)
 _measures_to_promediate = 5       # Take the mean of N measures
-_delay_between_measures = 20    # Delay between two measures. In seconds.
+_delay_between_measures = 10    # Delay between two measures. In seconds.
 _cache_measures = 5             # Get X measures before writing on screen/file
-_plot_each = 60                 # Call the plot function each X measures.
+_plot_each = 5                  # Call the plot function each X measures.
 
 _use_mysql = False        # Set to True if you want to store data on a MySQL db.
 _mysql_host = None        # Host (ip:port / localhost) of the MySQL engine.
