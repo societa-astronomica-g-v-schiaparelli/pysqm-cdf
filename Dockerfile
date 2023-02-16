@@ -25,7 +25,7 @@ RUN adduser -g 978 -S -s /sbin/nologin -D -h /home/pysqm -G pysqm -u 1006 pysqm
 USER pysqm
 
 # Install PySQM with config
-RUN git clone https://github.com/societa-astronomica-g-v-schiaparelli/PySQM.git /home/pysqm/PySQM
+RUN git clone -b python2 https://github.com/societa-astronomica-g-v-schiaparelli/PySQM.git /home/pysqm/PySQM
 ADD config.py /home/pysqm/PySQM/config.py
 ADD upload_sqm_images.sh /home/pysqm/upload_sqm_images.sh
 ADD ftp_settings /home/pysqm/ftp_settings
