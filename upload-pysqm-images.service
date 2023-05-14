@@ -2,5 +2,5 @@
 Description=Uploads PySQM images
 
 [Service]
-ExecStart=/usr/bin/podman exec --user pysqm pysqm bash /home/pysqm/upload_sqm_images.sh
+ExecStart=/usr/bin/docker exec --user pysqm pysqm-cdf-pysqm-1 bash /home/pysqm/upload_sqm_images.sh
 Type=oneshot

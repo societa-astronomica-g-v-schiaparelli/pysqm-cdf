@@ -2,36 +2,19 @@
 Dockerfile and configuration for the [PySQM](https://guaix.fis.ucm.es/PySQM) software to manage a [SQM-LE](http://unihedron.com/projects/sqm-le/) device.
 
 ## Usage
-These examples assume a [AlmaLinux](https://almalinux.org/) OS with [Podman](https://podman.io/) and [Buildah](https://buildah.io/).
-
-### Build
-Build with:
+Install the latest version of [Docker Engine](https://docs.docker.com/engine/install/) for the wanted Linux distribution. Then, build it and run it
+with `docker compose`:
 ```bash
-buildah bud -t pysqm-img .
+docker compose up -d
 ```
 
-### Run container
-Assuming that the data directory is `/media/pysqm`, run with:
-```bash
-podman run --name pysqm -d -v /media/pysqm:/media/pysqm pysqm-img
-```
-
-### Start and stop container
-To run the container, it is best to generate and use a systemd unit:
-```bash
-podman generate systemd --new -n pysqm > /etc/systemd/system/pysqm.service
-systemctl daemon-reload
-podman stop pysqm && podman rm pysqm
-systemctl --now enable pysqm.service
-```
-
-### Upload images
+## Upload images
 Images are uploaded with the included PHP script, which can be run with
 ```bash
-podman exec -it --user pysqm pysqm bash /home/pysqm/upload_sqm_images.sh
+docker exec -it --user pysqm pysqm-cdf-pysqm-1 bash /home/pysqm/upload_sqm_images.sh
 ```
 
-#### Periodically upload with a systemd timer
+### Periodically upload with a systemd timer
 Modify `upload-pysqm-images.service` by inserting the correct name of the container. Once done so, install
 the systemd timer with:
 ```bash
