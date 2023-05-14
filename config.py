@@ -64,6 +64,7 @@ _mysql_port = None        # Port of the MySQL server.
 
 _local_timezone     = +1     # UTC+1
 _computer_timezone  = +0     # UTC
+_timezone = 'Europe/Rome'
 #_offset_calibration = -0.11  # magnitude = read_magnitude + offset
 _offset_calibration = 0  # magnitude = read_magnitude + offset
 _reboot_on_connlost = False  # Reboot if we loose connection

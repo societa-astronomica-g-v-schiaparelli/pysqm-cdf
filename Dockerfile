@@ -3,11 +3,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 # Base information
-FROM python:2-alpine
+FROM python:3-alpine
 LABEL maintainer="dario.pilori@astrogeo.va.it"
 
 # Install packages
-RUN apk add --no-cache git lftp freetype-dev gcc g++ tzdata bash
+RUN apk add --no-cache git lftp freetype-dev gcc g++ tzdata bash make
 
 # Install Python packages
 RUN pip install -U pip setuptools wheel
@@ -25,11 +25,11 @@ RUN adduser -g 978 -S -s /sbin/nologin -D -h /home/pysqm -G pysqm -u 1006 pysqm
 USER pysqm
 
 # Install PySQM with config
-RUN git clone -b python2 https://github.com/societa-astronomica-g-v-schiaparelli/PySQM.git /home/pysqm/PySQM
+RUN git clone -b py3-fixes https://github.com/societa-astronomica-g-v-schiaparelli/PySQM.git /home/pysqm/PySQM
 ADD config.py /home/pysqm/PySQM/config.py
 ADD upload_sqm_images.sh /home/pysqm/upload_sqm_images.sh
 ADD ftp_settings /home/pysqm/ftp_settings
 
 # Run PySQM
 WORKDIR /home/pysqm/PySQM
-CMD python2 -m pysqm
+CMD python3 -m pysqm
